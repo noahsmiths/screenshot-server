@@ -52,7 +52,8 @@ const port = 3001;
 
 app.get('/', async (req, res) => {
     if (!req.query.url) {
-        res.send(401);
+        res.status(401);
+        return;
     }
 
     const data = await getWebsiteHTMLAndScreenshot(req.query.url);
